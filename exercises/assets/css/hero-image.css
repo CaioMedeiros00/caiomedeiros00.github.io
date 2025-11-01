@@ -1,0 +1,32 @@
+/* Simple Hero Block with Image */
+.hero-block {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../img/max.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 150px 20px;
+    text-align: center;
+}
+
+.hero-block h1 {
+    font-size: var(--fs-xxl);
+    margin-bottom: 20px;
+}
+
+.hero-block p {
+    font-size: var(--fs-base);
+    margin-bottom: 30px;
+}
+
+.hero-block a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.hero-block a:hover {
+    background-color: white;
+    color: black;
+}

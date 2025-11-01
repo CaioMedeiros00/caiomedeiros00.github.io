@@ -1,0 +1,75 @@
+/*  ============= WEB BROWSER RESETS ============ */
+* { margin: 0; padding: 0; border: none }
+*, *::before, *::after { box-sizing: border-box }
+html { height: 100%; font-size: 100%; font: inherit; vertical-align: baseline;
+scroll-behavior: smooth; scroll-padding-top: 20px }
+body { line-height: 1.5; min-height: 100vh }
+img { width: 100%; height: auto }
+@media (max-width: 767px ) { body { text-rendering: optimizeSpeed } }
+@media (min-width: 768px ) { body { text-rendering: optimizeLegibility } }
+
+/* ============ CUSTOM PROPERTIES ============ */
+:root {
+    --blue-500: #3B82F6;
+    --blue-600: #2563EB;
+    --fs-base: 1rem;
+    --fs-lg: 1.25rem;
+    --fs-xl: 1.95rem;
+    --fs-xxl: 2.44rem;
+}
+
+/* Container para centralizar conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Simple Hero Block */
+.hero-block {
+    background-color: var(--blue-500);
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-block h1 {
+    font-size: var(--fs-xxl);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-block h2 {
+    font-size: var(--fs-lg);
+    margin-bottom: 20px;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+.hero-block p {
+    font-size: var(--fs-base);
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-block a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.hero-block a:hover {
+    background-color: white;
+    color: var(--blue-500);
+}
