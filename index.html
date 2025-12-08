@@ -1,437 +1,901 @@
-<!-- Caio Medeiros 77281-->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caio Medeiros | Web / UI Designer</title>
-  <meta name="description" content="Hi I'm Helder, a Web & UI designer. Mobile and Responsive Web Design, eCommerce Websites, Branding and Logo Design.">
-  <link rel="stylesheet" href="assets/css/global.css">
-  <style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Camargo | Web/UI Designer Portfolio</title>
+    <meta name="description" content="Portfolio of Carlos Camargo, Web and UI Designer showcasing recent projects and design work.">
+    <link rel="preload" href="assets/img/pokemon.jpg" as="image">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">    
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">    
+    <link rel="manifest" href="assets/img/favicons/site.webmanifest">
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent: #6d28d9;
+            --accent-hover: #7c3aed;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
 
-    :root {
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Hero */
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2d1b4d);
+            color: var(--text-primary);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('assets/img/pokemon.jpg') center/cover no-repeat;
+            opacity: 0.15;
+            z-index: 0;
+            filter: grayscale(30%) contrast(120%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            margin: 0 auto 32px;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 0 25px rgba(109, 40, 217, 0.3);
+        }
+        
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: slideInTop 1s forwards 0.5s;
+            letter-spacing: -2px;
+            background: linear-gradient(45deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: slideInLeft 1s forwards 1s;
+            color: var(--text-secondary);
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1.5s;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 16px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 1s forwards 2s;
+            font-family: var(--font-heading);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transition: 0.5s;
+        }
+        
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(109, 40, 217, 0.4);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            position: relative;
+            font-family: var(--font-heading);
+            letter-spacing: -1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+        
+        .skills-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            font-family: var(--font-heading);
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .skill {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
 
-    /* Alternatives to default sans-serif font */
-    --font-sans: -apple-system, system-ui, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Fira Sans, Ubuntu, Oxygen, Oxygen Sans, Cantarell, Droid Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Emoji, Segoe UI Symbol, Lucida Grande, Helvetica, Arial, sans-serif;
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(109, 40, 217, 0.2);
+            border-color: var(--accent);
+            background: linear-gradient(45deg, var(--bg-card), rgba(109, 40, 217, 0.1));
+        }
+        
+        .skill h3 {
+            font-size: 1.1rem;
+            margin-top: 12px;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+        }
+        
+        .skill-icon {
+            font-size: 2.2rem;
+            color: var(--accent);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1.2;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+        
+        .about-img {
+            flex: 0.8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            background: none;
+            border: none;
+            box-shadow: none;
+            height: auto;
+            color: inherit;
+            border-radius: 0;
+            transition: none;
+        }
+        
+        .about-img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(109, 40, 217, 0.3);
+            border-color: var(--accent);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(109, 40, 217, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .project-img {
+            height: 220px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+        
+        .project-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-heading);
+        }
+        
+        .project-link:hover {
+            color: var(--accent-hover);
+            gap: 12px;
+        }
 
-     /* Alternatives to default serif font */
-    --font-serif: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 24px;
+        }
+        
+        .skill-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(109, 40, 217, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 16px;
+            background: linear-gradient(45deg, var(--accent), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+        
+        .skill-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .skill-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .skill {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            max-width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
 
-     /* Alternatives to default monospace font */
-    --font-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-    /* Fluid font size scale */
-    --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
-    --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
-    --fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
-    --fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
-    --fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
-    --fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
-    --fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
-    
-    /* Color variables */
-    --black-000: #000000;
-    --white-000: #ffffff;
-    --trans-000: transparent;
-
-    --slate-050: #ECEFF1;
-    --slate-100: #CFD8DC;
-    --slate-200: #B0BEC5;
-    --slate-300: #90A4AE;
-    --slate-400: #78909C;
-    --slate-500: #607D8B;
-    --slate-600: #546E7A;
-    --slate-700: #455A64;
-    --slate-800: #37474F;
-    --slate-900: #263238;
-
-    --gray-050: #F9FAFB;
-    --gray-100: #f7fafc;
-    --gray-200: #edf2f7;
-    --gray-300: #e2e8f0;
-    --gray-400: #cbd5e0;
-    --gray-500: #a0aec0;
-    --gray-600: #718096;
-    --gray-700: #4a5568;
-    --gray-800: #2d3748;
-    --gray-900: #1a202c;
-
-    --red-050: #FEF2F2;
-    --red-100: #fff5f5;
-    --red-200: #fed7d7;
-    --red-300: #feb2b2;
-    --red-400: #fc8181;
-    --red-500: #f56565;
-    --red-600: #e53e3e;
-    --red-700: #c53030;
-    --red-800: #9b2c2c;
-    --red-900: #742a2a;
-
-    --orange-050: #FFF7ED;
-    --orange-100: #fffaf0;
-    --orange-200: #feebc8;
-    --orange-300: #fbd38d;
-    --orange-400: #f6ad55;
-    --orange-500: #ed8936;
-    --orange-600: #dd6b20;
-    --orange-700: #c05621;
-    --orange-800: #9c4221;
-    --orange-900: #7b341e;
-
-    --amber-050: #FFFBEB;
-    --amber-100: #FEF3C7;
-    --amber-200: #FDE68A;
-    --amber-300: #FCD34D;
-    --amber-400: #FBBF24;
-    --amber-500: #F59E0B;
-    --amber-600: #D97706;
-    --amber-700: #B45309;
-    --amber-800: #92400E;
-    --amber-900: #78350F;
-
-    --yellow-050: #FEFCE8;
-    --yellow-100: #fffff0;
-    --yellow-200: #fefcbf;
-    --yellow-300: #faf089;
-    --yellow-400: #f6e05e;
-    --yellow-500: #ecc94b;
-    --yellow-600: #d69e2e;
-    --yellow-700: #b7791f;
-    --yellow-800: #975a16;
-    --yellow-900: #744210;
-
-    --lime-050: #F7FEE7;
-    --lime-100: #ECFCCB;
-    --lime-200: #D9F99D;
-    --lime-300: #BEF264;
-    --lime-400: #A3E635;
-    --lime-500: #84CC16;
-    --lime-600: #65A30D;
-    --lime-700: #4D7C0F;
-    --lime-800: #3F6212;
-    --lime-900: #365314;
-
-    --green-050: #F0FDF4;
-    --green-100: #f0fff4;
-    --green-200: #c6f6d5;
-    --green-300: #9ae6b4;
-    --green-400: #14f195;
-    --green-500: #48bb78;
-    --green-600: #38a169;
-    --green-700: #2f855a;
-    --green-800: #276749;
-    --green-900: #22543d;
-
-    --teal-050: #F0FDFA;
-    --teal-100: #CCFBF1;
-    --teal-200: #99F6E4;
-    --teal-300: #5EEAD4;
-    --teal-400: #2DD4BF;
-    --teal-500: #14B8A6;
-    --teal-600: #0D9488;
-    --teal-700: #0F766E;
-    --teal-800: #115E59;
-    --teal-900: #134E4A;
-
-    --cyan-050: #ECFEFF;
-    --cyan-100: #CFFAFE;
-    --cyan-200: #A5F3FC;
-    --cyan-300: #67E8F9;
-    --cyan-400: #22D3EE;
-    --cyan-500: #06B6D4;
-    --cyan-600: #0891B2;
-    --cyan-700: #0E7490;
-    --cyan-800: #155E75;
-    --cyan-900: #164E63;
-
-    --sky-050: #F0F9FF;
-    --sky-100: #E0F2FE;
-    --sky-200: #BAE6FD;
-    --sky-300: #7DD3FC;
-    --sky-400: #38BDF8;
-    --sky-500: #0EA5E9;
-    --sky-600: #0284C7;
-    --sky-700: #0369A1;
-    --sky-800: #075985;
-    --sky-900: #0C4A6E;
-
-    --blue-050: #EFF6FF;
-    --blue-100: #DBEAFE;
-    --blue-200: #BFDBFE;
-    --blue-300: #93C5FD;
-    --blue-400: #60A5FA;
-    --blue-500: #3B82F6;
-    --blue-600: #2563EB;
-    --blue-700: #1D4ED8;
-    --blue-800: #1E40AF;
-    --blue-900: #1E3A8A;
-
-    --indigo-050: #EEF2FF;
-    --indigo-100: #E0E7FF;
-    --indigo-200: #C7D2FE;
-    --indigo-300: #A5B4FC;
-    --indigo-400: #818CF8;
-    --indigo-500: #6366F1;
-    --indigo-600: #4F46E5;
-    --indigo-700: #4338CA;
-    --indigo-800: #3730A3;
-    --indigo-900: #312E81;
-
-    --purple-050: #FAF5FF;
-    --purple-100: #F3E8FF;
-    --purple-200: #E9D5FF;
-    --purple-300: #D8B4FE;
-    --purple-400: #C084FC;
-    --purple-500: #A855F7;
-    --purple-600: #9333EA;
-    --purple-700: #7E22CE;
-    --purple-800: #6B21A8;
-    --purple-900: #581C87;
-
-    --fuchsia-050: #FDF4FF;
-    --fuchsia-100: #FAE8FF;
-    --fuchsia-200: #F5D0FE;
-    --fuchsia-300: #F0ABFC;
-    --fuchsia-400: #E879F9;
-    --fuchsia-500: #D946EF;
-    --fuchsia-600: #C026D3;
-    --fuchsia-700: #A21CAF;
-    --fuchsia-800: #86198F;
-    --fuchsia-900: #701A75;
-
-    --pink-050: #FDF2F8;
-    --pink-100: #FCE7F3;
-    --pink-200: #FBCFE8;
-    --pink-300: #F9A8D4;
-    --pink-400: #F472B6;
-    --pink-500: #EC4899;
-    --pink-600: #DB2777;
-    --pink-700: #BE185D;
-    --pink-800: #9D174D;
-    --pink-900: #831843;
-
-    --rose-050: #FFF1F2;
-    --rose-100: #FFE4E6;
-    --rose-200: #FECDD3;
-    --rose-300: #FDA4AF;
-    --rose-400: #FB7185;
-    --rose-500: #F43F5E;
-    --rose-600: #E11D48;
-    --rose-700: #BE123C;
-    --rose-800: #9F1239;
-    --rose-900: #881337;
-
-    --brown-050: #EFEBE9;
-    --brown-100: #D7CCC8;
-    --brown-200: #BCAAA4;
-    --brown-300: #A1887F;
-    --brown-400: #8D6E63;
-    --brown-500: #795548;
-    --brown-600: #6D4C41;
-    --brown-700: #5D4037;
-    --brown-800: #4E342E;
-    --brown-900: #3E2723;
-
-    --trend-050: #fff4d9;
-    --trend-100: #fdd0bb;
-    --trend-200: #fea8b3;
-    --trend-300: #d4eee6;
-    --trend-400: #bde5fe;
-    --trend-500: #0000fe;
-    --trend-600: #400c3e;
-    --trend-700: #2c4763;
-    --trend-800: #1f364d;
-    --trend-900: #0e2439;
-
-}
-/* Reset do body */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  position: relative;
-}
-
-/* Container do vídeo de fundo */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  overflow: hidden;
-}
-
-.background-video {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.3;
-  object-fit: cover;
-}
-
-/* Overlay para contraste */
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  z-index: -1;
-}
-
-/* Garantir que o conteúdo fique visível */
-.container {
-  position: relative;
-  z-index: 1;
-}
-
-
-.video-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: -1;
-}
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    
-    /* Header styles */
-    header {
-      text-align: center;
-      padding: 150px 20px 50px;
-      position: relative;
-    }
-    
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-    
-    header h2 {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: #7f8c8d;
-      margin-bottom: 30px;
-    }
-    
-    
-    @keyframes pulse {
-      0% { 
-        transform: scale(1); 
-        box-shadow: 0 0 30px 10px rgba(255, 223, 0, 0.7); 
-      }
-      100% { 
-        transform: scale(1.1); 
-        box-shadow: 0 0 40px 15px rgba(255, 223, 0, 0.8); 
-      }
-    }
-    
-    @keyframes rotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    
-    main {
-  padding: 40px 20px;
-  background-color: rgba(255, 255, 255, 0.1); 
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  backdrop-filter: blur(1px); /
-}
-    section p {
-      margin: 15px 0;
-      font-size: 1.1rem;
-    }
-    
-    section a {
-      display: inline-block;
-      color: #3498db;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 5px 0;
-      border-bottom: 2px solid transparent;
-      transition: all 0.3s ease;
-    }
-    
-    section a:hover {
-      color: #2980b9;
-      border-bottom: 2px solid #2980b9;
-    }
-      
-    
-    @media (max-width: 480px) {
-      .profile-container {
-        width: 150px;
-        height: 150px;
-      }
-      
-      header {
-        padding: 120px 20px 30px;
-      }
-      
-      header h1 {
-        font-size: 1.8rem;
-      }
-    }
-  </style>
-
-  
-<link rel="apple-touch-icon" sizes="180x180" href="assets/css/favicons/apple-touch-icon.png">    
-<link rel="icon" type="image/png" sizes="32x32" href="assets/css/favicons/favicon-32x32.png">    
-<link rel="icon" type="image/png" sizes="16x16" href="assets/css/favicons/favicon-16x16.png">    
-<link rel="manifest" href="assets/css/favicons/site.webmanifest">
-
+        .skill:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(109, 40, 217, 0.2);
+            border-color: var(--accent);
+        }
+        
+        .skill h3 {
+            font-size: 1.2rem;
+            margin: 12px 0 8px;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+        }
+        
+        .skill p {
+            font-size: 0.95rem;
+            margin: 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .skill-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            color: #e74c3c;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+        
+        .contact-info p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-family: var(--font-heading);
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            font-family: inherit;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.2);
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--accent);
+            color: var(--text-primary);
+            border: none;
+            padding: 16px 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: var(--font-heading);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(109, 40, 217, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 24px 0;
+        }
+        
+        .social-link {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        /* Animations */
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .about-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+        }
+    </style>
 </head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Carlos Camargo</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
     
-      <h1>Caio Medeiros </h1>
-      <h2>Web / UI Designer</h2>
+    <!-- Header/Hero Section -->
+    <header id="home">
+        <div class="container hero-content">
+            <img src="assets/img/profile.jpg" alt="Carlos Camargo" class="profile-img">
+            <h1>Hi, I'm Carlos Camargo</h1>
+            <h2>Front End Developer</h2>
+            <p class="tagline">I design and build modern, engaging web experiences that delight users and drive results.</p>
+            <a href="#projects" class="btn">My Projects</a>
+        </div>
     </header>
     
-    <!-- Main content -->
+    <!-- Main Content -->
     <main>
-      <section>
-        <p>Here are my pages for this assigment.</p>
-        <p><a href="exercises/page-1.html">A Tale of Two Cities</a></p>
-        <p><a href="exercises/page-2.html">Purple Rain</a></p>
-        <p><a href="exercises/page-3.html">Web Page with Sections</a></p>
-        <p><a href="exercises/page-4.html">Vincent Van Gogh</a></p>
-        <p><a href="exercises/page-5.html">Ireland's Top Five Visitor Attractions</a></p>
-        <p><a href="exercises/hero-text.html">Hero Block with Text</a></p>
-        <p><a href="exercises/hero-image.html">Hero Block with Image</a></p>
-        <p><a href="exercises/hero-video.html">Hero Block with Video</a></p>
-      </section>
-    </main>
-  </div>
-</body>
+        <!-- About Section -->
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p style="font-family: 'Space Grotesk', sans-serif;">I create interactive, visually appealing web interfaces using modern front-end technologies.</p>
+                        <p style="font-family: 'Space Grotesk', sans-serif;">With a keen eye for design and attention to detail, I transform ideas into clean, efficient, and visually appealing websites. My approach combines aesthetic sensibility with technical expertise to build engaging digital experiences.</p>
+                        <p style="font-family: 'Space Grotesk', sans-serif;">I'm passionate about web standards, responsive design, and creating intuitive user interfaces. I continuously explore new technologies and design trends to ensure my work stays current and innovative.</p>
+                    </div>
+                    <div class="about-img">
+                        <img src="assets/img/giphy.gif" style="width:100%; border-radius:16px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Projects Section -->
+        <section id="projects">
+            <div class="container">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/tale.jpg" alt="A Tale of Two Cities - Charles Dickens" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">A Tale of Two Cities</h3>
+                            <p>A literary-themed website showcasing content from Charles Dickens' classic novel with elegant typography and layout.</p>
+                            <a href="exercises/page-1.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/purple rain.jpg" alt="Purple Rain Project" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Purple Rain</h3>
+                            <p>A vibrant music-themed website with dynamic color schemes and engaging visual elements.</p>
+                            <a href="exercises/page-2.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/Starry-Night-canvas-Vincent-van-Gogh-New-1889.webp" alt="Vincent Van Gogh Gallery" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Vincent Van Gogh</h3>
+                            <p>An art gallery website featuring the works of Vincent Van Gogh with immersive visual experiences.</p>
+                            <a href="exercises/page-4.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/cliffs-of-moher.jpg" alt="Irish Tourism" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Irish Tourism</h3>
+                            <p>A tourism website showcasing the beauty of Ireland with stunning imagery and intuitive navigation.</p>
+                            <a href="exercises/page-5.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/smoothies.jpg" alt="Smoothies Website" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Smoothies Website</h3>
+                            <p>A vibrant e-commerce site for a smoothie company with product showcases and ordering functionality.</p>
+                            <a href="portfolio/smoothies/index.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-img">
+                            <img src="exercises/assets/img/laptopstopicpage-2048px-3685-2x1-1.webp" alt="Top Laptops 2024" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Top Laptops 2024</h3>
+                            <p>An informative website reviewing the top-selling laptops of 2024 with detailed specifications and comparisons.</p>
+                            <a href="exercises/AI website.html" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <h3 class="skills-subtitle">Front End Development</h3>
+                <div class="skills-container">
+                    <div class="skill">
+                        <div class="skill-icon">⚛️</div>
+                        <h3>React</h3>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-icon">🎨</div>
+                        <h3>CSS3</h3>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-icon">⚡</div>
+                        <h3>JavaScript</h3>
+                    </div>
+                    
+                    <div class="skill">
+                        <div class="skill-icon">📱</div>
+                        <h3>Responsive</h3>
+                    </div>
 
-<div class="video-background">
-    <video class="background-video" autoplay muted loop playsinline poster="assets/img/video-poster.jpg">
-        <source src="assets/video/bg-video.mp4" type="video/mp4">
-        Seu navegador não suporta vídeos HTML5.
-    </video>
-</div>
-<div class="video-overlay"></div>
+                    <div class="skill">
+                        <div class="skill-icon">🎯</div>
+                        <h3>TypeScript</h3>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Let's Connect!</h3>
+                        <p>Have a project idea, collaboration, or just want to say hello? I'm always open to new opportunities and creative conversations. Reach out and let's build something great together!</p>
+                        <p>Email: 76214@Student.dorset-college.ie</p>
+                        <p>Location: Based in Ireland</p>
+                    </div>
+                    <div class="contact-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Carlos Camargo.</p>
+        </div>
+    </footer>
+</body>
 </html>
