@@ -127,27 +127,27 @@ img { width: 100%; height: auto }
     --cyan-800: #155E75;
     --cyan-900: #164E63;
 
-    --sky-050: #F0F9FF;
-    --sky-100: #E0F2FE;
-    --sky-200: #BAE6FD;
-    --sky-300: #7DD3FC;
-    --sky-400: #38BDF8;
-    --sky-500: #0EA5E9;
-    --sky-600: #0284C7;
-    --sky-700: #0369A1;
-    --sky-800: #075985;
-    --sky-900: #0C4A6E;
+    --sky-050: #FFF1F2;
+    --sky-100: #FFE4E6;
+    --sky-200: #FECDD3;
+    --sky-300: #FDA4AF;
+    --sky-400: #FB7185;
+    --sky-500: #EF4444;
+    --sky-600: #DC2626;
+    --sky-700: #B91C1C;
+    --sky-800: #991B1B;
+    --sky-900: #7F1D1D;
 
-    --blue-050: #EFF6FF;
-    --blue-100: #DBEAFE;
-    --blue-200: #BFDBFE;
-    --blue-300: #93C5FD;
-    --blue-400: #60A5FA;
-    --blue-500: #3B82F6;
-    --blue-600: #2563EB;
-    --blue-700: #1D4ED8;
-    --blue-800: #1E40AF;
-    --blue-900: #1E3A8A;
+    --blue-050: #FFF1F2;
+    --blue-100: #FFE4E6;
+    --blue-200: #FECDD3;
+    --blue-300: #FDA4AF;
+    --blue-400: #FB7185;
+    --blue-500: #EF4444;
+    --blue-600: #DC2626;
+    --blue-700: #B91C1C;
+    --blue-800: #991B1B;
+    --blue-900: #7F1D1D;
 
     --indigo-050: #EEF2FF;
     --indigo-100: #E0E7FF;
