@@ -205,19 +205,17 @@ body, html {
 
 /* Background Image with Reduced Visibility */
 .bg {
-    background-image: url('../img/profile.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+    /* Use a solid red background instead of the profile image */
+    background-color: #ff0000;
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-  z-index: -1;
-  opacity: 0.8;
+    z-index: -1;
+    opacity: 1;
 }
 
 /* Main Content Styling */
