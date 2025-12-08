@@ -51,7 +51,13 @@ header {
     /* Optionally, centre child div horizontally */
     text-align: center;
     /* Dark blue */ 
-background-color: transparent;
+    background-color: transparent;
+    /* Ensure header never displays the profile image as a background. */
+    /* This prevents any accidental background-image inheritance or overrides */
+    background-image: none !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
 }
 
 /* Set minimum height of hero block */
