@@ -228,6 +228,29 @@
             width: 100%;
         }
         
+        .portfolio-btn {
+            background: var(--accent);
+            color: white;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: var(--font-heading);
+            border: 2px solid var(--accent);
+        }
+        
+        .portfolio-btn:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.4);
+        }
+        
+        .portfolio-btn::after {
+            display: none;
+        }
+        
         /* Sections */
         section {
             padding: 100px 0;
@@ -708,9 +731,8 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="portfolio/index.html" class="portfolio-btn">Portfolio</a></li>
             </ul>
         </div>
     </nav>
@@ -785,77 +807,9 @@
                             <a href="portfolio/crypto-wallet/index.html" class="project-link">View Project →</a>
                         </div>
                     </div>
-                    
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <div class="project-img">
-                            <img src="portfolio/project-multi column/assets/img/460x300-trans-couple-coffee.png" alt="Project Multi-column" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Multi-Column</h3>
-                            <p>A tourism website showcasing the beauty of Ireland with stunning imagery and intuitive navigation.</p>
-                            <a href="portfolio/project-multi column/index.html" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Project 5 -->
-                    <div class="project-card">
-                        <div class="project-img">
-                            <img src="exercises/assets/img/smoothies.jpg" alt="Smoothies Website" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Smoothies Website</h3>
-                            <p>A vibrant e-commerce site for a smoothie company with product showcases and ordering functionality.</p>
-                            <a href="portfolio/smoothies/index.html" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    
-                    <!-- Project: Hero Blocks -->
-                    <div class="project-card">
-                        <div class="project-img">
-                            <img src="portfolio/project-hero/assets/img/fashion.jpg" alt="Hero Blocks — split-screen layouts" style="width: 100%; height: 100%; object-fit: cover;">
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Hero Blocks</h3>
-                            <p>Gallery of modern hero sections featuring split-screen layouts, duotone effects and bold typography.</p>
-                            <a href="portfolio/project-hero/index-1.html" class="project-link">View Project →</a>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </section>
-        
-        <!-- Skills Section -->
-        <section id="skills">
-            <div class="container">
-                <h2 class="section-title">My Skills</h2>
-                <h3 class="skills-subtitle">Front End Development</h3>
-                <div class="skills-container">
-                    <div class="skill">
-                        <div class="skill-icon">⚛️</div>
-                        <h3>React</h3>
-                    </div>
-                    
-                    <div class="skill">
-                        <div class="skill-icon">🎨</div>
-                        <h3>CSS3</h3>
-                    </div>
-                    
-                    <div class="skill">
-                        <div class="skill-icon">⚡</div>
-                        <h3>JavaScript</h3>
-                    </div>
-                    
-                    <div class="skill">
-                        <div class="skill-icon">📱</div>
-                        <h3>Responsive</h3>
-                    </div>
-
-                    <div class="skill">
-                        <div class="skill-icon">🎯</div>
-                        <h3>TypeScript</h3>
-                    </div>
-                    </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="portfolio/index.html" class="btn">View All Projects</a>
                 </div>
             </div>
         </section>
