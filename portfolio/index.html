@@ -287,13 +287,74 @@
         /* Footer */
         footer {
             background: var(--bg-card);
-            padding: 40px 0;
+            padding: 60px 20px 40px;
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        footer p {
+        footer h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 12px;
+            background: linear-gradient(45deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer h3 {
             color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            list-style: none;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .footer-icons a {
+            color: var(--text-secondary);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .privacy a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .privacy a:hover {
+            color: var(--accent);
         }
         
         /* Animations */
@@ -463,9 +524,21 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 CM</p>
-        </div>
+        <h2>Caio Medeiros</h2>
+        <h3>Front-end designer and developer student</h3>
+
+        <ul class="footer-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="index.html">Portfolio</a></li>
+            <li><a href="store/index.html">Store</a></li>
+        </ul>
+
+        <ul class="footer-icons">
+            <li><a href="https://www.linkedin.com/in/caio-medeiros-b801a9351/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/CaioMedeiros00" target="_blank"><i class="fab fa-github-square"></i></a></li>
+        </ul>
+
+        <p class="privacy"><a href="../privacy.html">Privacy &amp; Legal</a></p>
     </footer>
 </body>
 </html>

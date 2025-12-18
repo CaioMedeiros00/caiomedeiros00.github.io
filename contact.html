@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/css/favicons/apple-touch-icon.png">    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/css/favicons/favicon-32x32.png">    
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/css/favicons/favicon-16x16.png">    
+    <link rel="manifest" href="assets/css/favicons/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Caio Medeiros</title>
+    <meta name="description" content="Get in touch with Caio Medeiros - Front-end designer and developer student.">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent: #e11d48;
+            --accent-hover: #ef4444;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        nav {
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .portfolio-btn {
+            background: var(--accent);
+            color: var(--text-primary) !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+        }
+
+        .portfolio-btn::after {
+            display: none;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #3b0f12);
+            color: var(--text-primary);
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff0000;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 16px;
+            letter-spacing: -2px;
+            background: linear-gradient(45deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            animation: slideInTop 1s forwards 0.3s;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            opacity: 0;
+            animation: slideInLeft 1s forwards 0.6s;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            position: relative;
+            font-family: var(--font-heading);
+            letter-spacing: -1px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        .contact-text {
+            margin-bottom: 40px;
+        }
+
+        .contact-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .contact-text a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-text a:hover {
+            color: var(--accent-hover);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--text-primary);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            background: var(--accent);
+            color: var(--text-primary);
+            padding: 14px 36px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+        }
+
+        .submit-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover i {
+            transform: translateX(4px);
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.1);
+            font-size: 1.1rem;
+        }
+
+        .social-btn i {
+            font-size: 1.5rem;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--accent);
+        }
+
+        .linkedin-btn:hover {
+            background: #0077b5;
+            border-color: #0077b5;
+        }
+
+        .github-btn:hover {
+            background: #333;
+            border-color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 60px 20px 40px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer h2 {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 12px;
+            background: linear-gradient(45deg, var(--text-primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer h3 {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            list-style: none;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .footer-icons a {
+            color: var(--text-secondary);
+            font-size: 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-icons a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .privacy a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .privacy a:hover {
+            color: var(--accent);
+        }
+
+        /* Animations */
+        @keyframes slideInTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .social-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">CM</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio/index.html">Portfolio</a></li>
+                <li><a href="portfolio/store/index.html">Store</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Header -->
+    <header>
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <h2>Let's connect and create something amazing together</h2>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-text">
+                    <p>Have a project you would like to discuss? Let's make something great together! Email me at <a href="mailto:caio.alexandremp@gmail.com">caio.alexandremp@gmail.com</a> or use the form below to let me know a little more about your objectives and I'll get back to you.</p>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How can I help you?</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            Send
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <h2>Caio Medeiros</h2>
+        <h3>Front-end designer and developer student</h3>
+
+        <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio/index.html">Portfolio</a></li>
+            <li><a href="portfolio/store/index.html">Store</a></li>
+        </ul>
+
+        <ul class="footer-icons">
+            <li><a href="https://www.linkedin.com/in/caio-medeiros-b801a9351/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://github.com/CaioMedeiros00" target="_blank"><i class="fab fa-github-square"></i></a></li>
+        </ul>
+
+        <p class="privacy"><a href="privacy.html">Privacy &amp; Legal</a></p>
+    </footer>
+</body>
+</html>

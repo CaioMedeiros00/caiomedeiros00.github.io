@@ -6,51 +6,375 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="../../assets/css/favicons/favicon-32x32.png">    
 	<link rel="icon" type="image/png" sizes="16x16" href="../../assets/css/favicons/favicon-16x16.png">    
 	<link rel="manifest" href="../../assets/css/favicons/site.webmanifest">
-	<style>
-	</style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store | Caio Medeiros </title>
     <meta name="description" content="A selection of hand-picked quality books from Amazon to enhance your web design, web development, and digital business skills.">
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="https://lunevedy.com/assets/2.0/css/lunevedy.min.css" />
-	<link rel="stylesheet" href="../../assets/css/custom.css" />
-
-
 	<!-- Google Fonts -->
-
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+	
     <!-- Font Awesome 6 icons for buttons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<style>
-		/* sets a fixed height on the book images */
-		.col-4 img { max-height: 300px; width: auto }
-
-		/* sets a specal fixed height for tablet screens */
-		@media(min-width:786px) and (max-width: 1024px) {
-			.col-4 img { max-height: 200px; width: auto }
+		/* CSS Variables */
+		:root {
+			--bg-dark: #0a0a0a;
+			--bg-card: #1a1a1a;
+			--text-primary: #ffffff;
+			--text-secondary: #a0aec0;
+			--accent: #e11d48;
+			--accent-hover: #ef4444;
+			--font-heading: 'Space Grotesk', sans-serif;
+			--font-body: 'Poppins', sans-serif;
 		}
-		
-		/* Amazon-style buttons */
-		.section-selector-1 a.btn:link,
-		.section-selector-1 a.btn:visited { background-color: var(--yellow-400) }
 
-		.section-selector-1 a.btn:link,
-		.section-selector-1 a.btn:visited { color: var(--blue-800) }
+		/* Reset and base styles */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
-		.section-selector-1 a.btn:link,
-		.section-selector-1 a.btn:visited { border-color: var(--yellow-400) }
+		body {
+			font-family: var(--font-body);
+			line-height: 1.6;
+			color: var(--text-primary);
+			background-color: var(--bg-dark);
+		}
 
-		.section-selector-1 a.btn:focus,
-		.section-selector-1 a.btn:hover,
-		.section-selector-1 a.btn:active { background-color: var(--yellow-500) }
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
 
-		.section-selector-1 a.btn:focus,
-		.section-selector-1 a.btn:hover,
-		.section-selector-1 a.btn:active { border-color: var(--yellow-500) }
+		/* Navigation */
+		nav {
+			background: rgba(26, 26, 26, 0.95);
+			backdrop-filter: blur(10px);
+			box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+			position: sticky;
+			top: 0;
+			z-index: 100;
+			border-bottom: 1px solid rgba(255,255,255,0.1);
+			padding: 20px 0;
+		}
 
+		.nav-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.logo {
+			font-family: var(--font-heading);
+			font-size: 1.5rem;
+			font-weight: 700;
+			color: var(--text-primary);
+			text-decoration: none;
+			letter-spacing: -0.5px;
+		}
+
+		.nav-links {
+			display: flex;
+			list-style: none;
+			gap: 2rem;
+			align-items: center;
+		}
+
+		.nav-links a {
+			text-decoration: none;
+			color: var(--text-secondary);
+			font-weight: 500;
+			transition: all 0.3s ease;
+			font-size: 0.95rem;
+			position: relative;
+		}
+
+		.nav-links a::after {
+			content: '';
+			position: absolute;
+			bottom: -4px;
+			left: 0;
+			width: 0;
+			height: 2px;
+			background: var(--accent);
+			transition: width 0.3s ease;
+		}
+
+		.nav-links a:hover {
+			color: var(--text-primary);
+		}
+
+		.nav-links a:hover::after {
+			width: 100%;
+		}
+
+		.portfolio-btn {
+			background: var(--accent);
+			color: var(--text-primary) !important;
+			padding: 10px 24px;
+			border-radius: 8px;
+			transition: all 0.3s ease;
+		}
+
+		.portfolio-btn:hover {
+			background: var(--accent-hover);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+		}
+
+		.portfolio-btn::after {
+			display: none;
+		}
+
+		/* Header */
+		header {
+			background: linear-gradient(135deg, #1a1a1a, #3b0f12);
+			color: var(--text-primary);
+			padding: 120px 0 80px;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		header::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #ff0000;
+			opacity: 0.15;
+			z-index: 0;
+		}
+
+		.hero-content {
+			position: relative;
+			z-index: 1;
+		}
+
+		h1 {
+			font-family: var(--font-heading);
+			font-size: 3.5rem;
+			margin-bottom: 16px;
+			letter-spacing: -2px;
+			background: linear-gradient(45deg, var(--text-primary), var(--accent));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		h2 {
+			font-family: var(--font-heading);
+			font-size: 1.3rem;
+			font-weight: 400;
+			color: var(--text-secondary);
+			max-width: 800px;
+			margin: 0 auto;
+			line-height: 1.7;
+		}
+
+		/* Main Section */
+		main {
+			padding: 80px 0;
+			background-color: var(--bg-dark);
+		}
+
+		.books-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 32px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		.book-card {
+			background: var(--bg-card);
+			border-radius: 16px;
+			overflow: hidden;
+			box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+			transition: all 0.4s ease;
+			border: 1px solid rgba(255,255,255,0.1);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.book-card:hover {
+			transform: translateY(-10px);
+			box-shadow: 0 15px 40px rgba(225, 29, 72, 0.2);
+			border-color: var(--accent);
+		}
+
+		.book-card figure {
+			height: 320px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #2a2a2a;
+			padding: 20px;
+			overflow: hidden;
+		}
+
+		.book-card img {
+			max-height: 300px;
+			width: auto;
+			transition: transform 0.5s ease;
+		}
+
+		.book-card:hover img {
+			transform: scale(1.05);
+		}
+
+		.book-content {
+			padding: 24px;
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.book-card h3 {
+			font-family: var(--font-heading);
+			font-size: 1.3rem;
+			margin-bottom: 8px;
+			color: var(--text-primary);
+			letter-spacing: -0.5px;
+			line-height: 1.3;
+		}
+
+		.book-card p {
+			color: var(--text-secondary);
+			margin-bottom: 20px;
+			font-size: 0.95rem;
+		}
+
+		.buy-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			padding: 12px 24px;
+			background: var(--accent);
+			color: var(--text-primary);
+			text-decoration: none;
+			border-radius: 8px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			font-family: var(--font-heading);
+			margin-top: auto;
+			justify-content: center;
+		}
+
+		.buy-btn:hover {
+			background: var(--accent-hover);
+			transform: translateY(-2px);
+			box-shadow: 0 8px 20px rgba(225, 29, 72, 0.3);
+		}
+
+		.buy-btn i {
+			font-size: 1rem;
+		}
+
+		/* Footer */
+		footer {
+			background: var(--bg-card);
+			padding: 60px 20px 40px;
+			text-align: center;
+			border-top: 1px solid rgba(255,255,255,0.1);
+		}
+
+		footer h2 {
+			font-family: var(--font-heading);
+			font-size: 2rem;
+			margin-bottom: 12px;
+			background: linear-gradient(45deg, var(--text-primary), var(--accent));
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		footer h3 {
+			color: var(--text-secondary);
+			font-size: 1.1rem;
+			font-weight: 400;
+			margin-bottom: 32px;
+		}
+
+		.footer-links {
+			display: flex;
+			justify-content: center;
+			gap: 32px;
+			list-style: none;
+			margin-bottom: 24px;
+			flex-wrap: wrap;
+		}
+
+		.footer-links a {
+			color: var(--text-secondary);
+			text-decoration: none;
+			font-weight: 500;
+			transition: all 0.3s ease;
+		}
+
+		.footer-links a:hover {
+			color: var(--accent);
+		}
+
+		.footer-icons {
+			display: flex;
+			justify-content: center;
+			gap: 16px;
+			list-style: none;
+			margin-bottom: 24px;
+		}
+
+		.footer-icons a {
+			color: var(--text-secondary);
+			font-size: 1.8rem;
+			transition: all 0.3s ease;
+		}
+
+		.footer-icons a:hover {
+			color: var(--accent);
+			transform: translateY(-3px);
+		}
+
+		.privacy a {
+			color: var(--text-secondary);
+			text-decoration: none;
+			font-size: 0.9rem;
+		}
+
+		.privacy a:hover {
+			color: var(--accent);
+		}
+
+		/* Responsive */
+		@media (max-width: 768px) {
+			h1 {
+				font-size: 2.5rem;
+			}
+
+			h2 {
+				font-size: 1.1rem;
+			}
+
+			.nav-links {
+				gap: 1rem;
+			}
+
+			.books-grid {
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				gap: 24px;
+			}
+		}
 	</style>
 
 </head>
@@ -58,32 +382,25 @@
 
 <body>
 
-    <!-- navbar start here -->
-    <nav class="theme-dark"><div class="container-menu">
-		<a href="../../index.html" class="brand">
-            <!-- <img src="assets\img\Orange_Logo_Luara_Froes_78337.png" alt="Sample website logo"></a> -->
-        
-        <div class="container-menu-links">
-        
-        <div class="nav-toggle" id="nav-toggle-btn"><div class="bar-1"></div><div class="bar-2"></div><div class="bar-3"></div></div>
-            <ul class="links-wrapper">
-				<li><a href="../../index.html">Home</a></li>
-				<li><a href="../index.html">Portfolio</a></li>
-				<li><a href="#">Store</a></li>
-				<li><a class="btn btn-solid btn-soft" id="btn-cta" href="../../contact/index.html"><span>Contact</span> <i class="fa-regular fa-envelope"></i></a></li>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">CM</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html">Portfolio</a></li>
+                <li><a href="#">Store</a></li>
             </ul>
-            </div>
         </div>
     </nav>
-    <!-- navbar ends here -->
     
-	<!-- header starts here -->
-    <header class="theme-dark text-center-mobile">
-        <div class="container-text w-1140px">
+	<!-- Header -->
+    <header>
+        <div class="hero-content">
             <h1>Store</h1>
             <h2>A selection of hand-picked quality books from Amazon to enhance your web design, web development, and digital business skills.</h2>
         </div>
-    </header><!-- header ends here -->
+    </header>
         
         
     <!-- main content with sections -->
@@ -93,85 +410,82 @@
     <section class="theme-dark section-selector-1 w-1356px">
 
 		<!-- Begin four-column flexbox grid -->
-		<div class="flex-cols-4 mobile-col-2">
+		<div clMain Content -->
+    <main>
+		<div class="container">
+			<div class="books-grid">
+				<div class="book-card">
+					<figure>
+						<a href="https://www.amazon.co.uk/dp/1925836363"><img src="assets/img/beautiful-web-design.png"  alt="The Principles of Beautiful Web Design: Jason Beaird & Alex Walker"></a>
+					</figure>
+					<div class="book-content">
+						<h3>The Principles of Beautiful Web Design</h3>
+						<p>Jason Beaird &amp; Alex Walker</p>
+						<a href="https://www.amazon.co.uk/dp/1925836363" class="buy-btn" target="_blank" rel="noopener noreferrer">
+							<span>Buy now</span><i class="fas fa-shopping-cart"></i>
+						</a>
+					</div>
+				</div>
 
-			<div class="col-4">
-				<figure>
-					<a href="https://www.amazon.co.uk/dp/1925836363"><img src="assets/img/beautiful-web-design.png"  alt="The Principles of Beautiful Web Design: Jason Beaird & Alex Walker"></a>
-				</figure>
-				<h3>The Principles of Beautiful Web Design</h3>
-				<p>Jason Beaird &amp; Alex Walker</p>
-				<a href="https://www.amazon.co.uk/dp/1925836363/ref=nosim?tag=	
-luarafroes-21" class="btn btn-solid btn-pill"><span>Buy now</span><i class="fas fa-shopping-cart"></i></a>
+				<div class="book-card">
+					<figure>
+						<a href="https://www.amazon.co.uk/dp/1849693188"><img src="assets/img/responsive-web-design-frain.jpg" alt="Responsive Web Design with HTML5 and CSS3: Ben Frain"></a>
+					</figure>
+					<div class="book-content">
+						<h3>Responsive Web Design with HTML5 and CSS3</h3>
+						<p>Ben Frain</p>
+						<a href="https://www.amazon.co.uk/dp/1849693188" class="buy-btn" target="_blank" rel="noopener noreferrer">
+							<span>Buy now</span><i class="fas fa-shopping-cart"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="book-card">
+					<figure>
+						<a href="https://www.amazon.co.uk/dp/0648053709"><img src="assets/img/complete-website-planning.png" alt="The Complete Website Planning Guide: Darryl King"></a>
+					</figure>
+					<div class="book-content">
+						<h3>The Complete Website Planning Guide</h3>
+						<p>Darryl King</p>
+						<a href="https://www.amazon.co.uk/dp/0648053709" class="buy-btn" target="_blank" rel="noopener noreferrer">
+							<span>Buy now</span><i class="fas fa-shopping-cart"></i>
+						</a>
+					</div>
+				</div>
+
+				<div class="book-card">
+					<figure>
+						<a href="https://www.amazon.co.uk/dp/1706664680"><img src="assets/img/making-your-website-work.png" alt="Making Your Website Work: Gill Andrews"></a>
+					</figure>
+					<div class="book-content">
+						<h3>Making Your Website Work</h3>
+						<p>Gill Andrews</p>
+						<a href="https://www.amazon.co.uk/dp/1706664680" class="buy-btn" target="_blank" rel="noopener noreferrer">
+							<span>Buy now</span><i class="fas fa-shopping-cart"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div text-center-desktop text-center-mobile">
+
+				</div>
 			</div>
 
-			<div class="col-4">
-				<figure>
-					<a href="https://www.amazon.co.uk/dp/1849693188/ref=nosim?tag=	
-luarafroes-21"><img src="assets/img/responsive-web-design-frain.jpg" alt="Responsive Web Design with HTML5 and CSS3: Ben Frain"></a>
-				</figure>
-				<h3>Responsive Web Design with HTML5 and CSS3</h3>
-				<p>Ben Frain</p>
-				<a href="https://www.amazon.co.uk/dp/1849693188/ref=nosim?tag=	
-luarafroes-21" class="btn btn-solid btn-pill"><span>Buy now</span><i class="fas fa-shopping-cart"></i></a>
-			</div>
 
-			<div class="col-4">
-				<figure>
-					<a href="https://www.amazon.co.uk/dp/0648053709/ref=nosim?tag=	
-luarafroes-21"><img src="assets/img/complete-website-planning.png" alt="The Complete Website Planning Guide: Darryl King"></a>
-				</figure>
-				<h3>The Complete Website Planning Guide</h3>
-				<p>Darryl King</p>
-				<a href="https://www.amazon.co.uk/dp/0648053709/ref=nosim?tag=	
-luarafroes-21" class="btn btn-solid btn-pill"><span>Buy now</span><i class="fas fa-shopping-cart"></i></a>
-			</div>
-
-			<div class="col-4">
-				<figure>
-					<a href="https://www.amazon.co.uk/dp/1706664680"><img src="assets/img/making-your-website-work.png" alt="Making Your Website Work: Gill Andrews"></a>
-				</figure>
-				<h3>Making Your Website Work</h3>
-				<p>Gill Andrews</p>
-				<a href="https://www.amazon.co.uk/dp/1706664680" class="btn btn-solid btn-pill"><span>Buy now</span><i class="fas fa-shopping-cart"></i></a>
-			</div>
-
-		</div>
-		<!-- Ends four-column flexbox grid -->
-
-	</section>
-	<!-- section ends here -->
-   
-   
-    </main>
-
-    <!-- footer -->
-
-	<footer class="theme-dark text-center-desktop text-center-mobile">
-
-		<h2>Luara Froes</h2>
-
+	<footer>
+		<h2>Caio Medeiros</h2>
 		<h3>Front-end designer and developer student</h3>
 
 		<ul class="footer-links">
 			<li><a href="../../index.html">Home</a></li>
 			<li><a href="../index.html">Portfolio</a></li>
 			<li><a href="#">Store</a></li>
-	            <li><a href="../../contact/index.html">Contact</a></li>
 		</ul>
 
 		<ul class="footer-icons">
-			<li><a href="https://www.linkedin.com/in/luara-froes-3a301120b/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-			<li><a href="https://github.com/Luarafroes" target="_blank"><i class="fab fa-github-square"></i></a></li>
+			<li><a href="https://www.linkedin.com/in/caio-medeiros-b801a9351/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+			<li><a href="https://github.com/CaioMedeiros00" target="_blank"><i class="fab fa-github-square"></i></a></li>
 		</ul>
 
 		<p class="privacy"><a href="../../privacy.html">Privacy &amp; Legal</a></p>
-
-	</footer>
-
-    <script src="https://lunevedy.com/assets/js/lunevedy.js"></script>
-
-</body>
-</html>
-
-
+	</footer
