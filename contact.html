@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R41NFWDJZ6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R41NFWDJZ6');
+    </script>
+    <!-- Begin Inspectlet Asynchronous Code -->
+    <script type="text/javascript">
+    (function() {
+    window.__insp = window.__insp || [];
+    __insp.push(['wid', 1825275241]);
+    var ldinsp = function(){
+    if(typeof window.__inspld != "undefined") return; window.__inspld = 1; var insp = document.createElement('script'); insp.type = 'text/javascript'; insp.async = true; insp.id = "inspsync"; insp.src = ('https:' == document.location.protocol ? 'https' : 'http') + '://cdn.inspectlet.com/inspectlet.js?wid=1825275241&r=' + Math.floor(new Date().getTime()/3600000); var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(insp, x); };
+    setTimeout(ldinsp, 0);
+    })();
+    </script>
+    <!-- End Inspectlet Asynchronous Code -->
     <meta charset="UTF-8">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/css/favicons/apple-touch-icon.png">    
     <link rel="icon" type="image/png" sizes="32x32" href="assets/css/favicons/favicon-32x32.png">    
@@ -57,16 +77,13 @@
             top: 0;
             z-index: 100;
             border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 20px 0;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px 0;
         }
 
         .logo {
@@ -128,6 +145,30 @@
         }
 
         .portfolio-btn::after {
+            display: none;
+        }
+
+        /* Hide current page nav button */
+        .nav-links .active-page {
+            background: var(--accent);
+            color: var(--text-primary) !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.4);
+        }
+
+        .portfolio-btn::after {
+            display: none;
+        }
+
+        /* Hide current page nav button */
+        .nav-links .active-page {
             display: none;
         }
 
@@ -483,11 +524,11 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="index.html" class="logo">CM</a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio/index.html">Portfolio</a></li>
+                <li><a href="portfolio/index.html" class="portfolio-btn">Portfolio</a></li>
                 <li><a href="portfolio/store/index.html">Store</a></li>
             </ul>
         </div>

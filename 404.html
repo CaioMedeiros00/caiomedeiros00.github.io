@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/css/favicons/apple-touch-icon.png">    
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/css/favicons/favicon-32x32.png">    
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/css/favicons/favicon-16x16.png">    
+    <link rel="manifest" href="assets/css/favicons/site.webmanifest">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <meta name="description" content="404 - Page not found">
+    <link rel="stylesheet" href="assets/css/global.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --accent: #e11d48;
+            --accent-hover: #ef4444;
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: clamp(6rem, 15vw, 12rem);
+            font-weight: 700;
+            line-height: 1;
+            margin: 0;
+            color: var(--accent);
+        }
+
+        .error-message {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            color: var(--text-secondary);
+            margin: 2rem 0 3rem 0;
+            line-height: 1.6;
+        }
+
+        .home-link {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 1.125rem;
+            color: var(--text-primary);
+            background-color: var(--accent);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .home-link:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(225, 29, 72, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1 class="error-code">404</h1>
+        <p class="error-message">No web page found. <a href="index.html" class="home-link">Click here</a> to return to the website home page.</p>
+    </div>
+</body>
+</html>
