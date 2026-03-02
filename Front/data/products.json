@@ -1,0 +1,12 @@
+[
+  { "productID": 1001, "name": "Laptop", "price": 999.99, "inStock": true },
+  { "productID": 1002, "name": "Wireless Mouse", "price": 24.99, "inStock": true },
+  { "productID": 1003, "name": "Mechanical Keyboard", "price": 59.99, "inStock": false },
+  { "productID": 1004, "name": "HD Monitor 24-inch", "price": 149.99, "inStock": true },
+  { "productID": 1005, "name": "USB-C Hub", "price": 34.99, "inStock": true },
+  { "productID": 1006, "name": "External Hard Drive 1TB", "price": 79.99, "inStock": true },
+  { "productID": 1007, "name": "Noise Cancelling Headphones", "price": 199.99, "inStock": false },
+  { "productID": 1008, "name": "Webcam 1080p", "price": 49.99, "inStock": true },
+  { "productID": 1009, "name": "HDMI Cable 2m", "price": 12.50, "inStock": true },
+  { "productID": 1010, "name": "Graphics Tablet", "price": 129.99, "inStock": false }
+]

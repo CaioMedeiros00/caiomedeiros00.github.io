@@ -1,0 +1,12 @@
+[
+  { "firstName": "Luis", "lastName": "Martinez", "age": 32, "isActive": true },
+  { "firstName": "Emma", "lastName": "Smith", "age": 28, "isActive": false },
+  { "firstName": "Tom", "lastName": "Murphy", "age": 21, "isActive": true },
+  { "firstName": "Sophia", "lastName": "Brown", "age": 45, "isActive": true },
+  { "firstName": "James", "lastName": "Wilson", "age": 35, "isActive": false },
+  { "firstName": "Olivia", "lastName": "Miller", "age": 29, "isActive": true },
+  { "firstName": "Daniel", "lastName": "Taylor", "age": 52, "isActive": true },
+  { "firstName": "Ava", "lastName": "Anderson", "age": 24, "isActive": false },
+  { "firstName": "Lucas", "lastName": "Thomas", "age": 39, "isActive": true },
+  { "firstName": "Mia", "lastName": "Jackson", "age": 31, "isActive": true }
+]
