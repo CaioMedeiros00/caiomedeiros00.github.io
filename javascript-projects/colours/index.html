@@ -6,6 +6,32 @@
     <title>Caio Medeiros 77281</title>
 </head>
 <body>
-    
+    <section>
+
+        <h2> Background Colors: <span id="bg-color"></span></h2>
+
+        <button id="change-color">Change Colour</button>
+
+    </section>
+
+    <script>
+        const btnColour = document.getElementById('change-color');
+        const boxDisplay = document.getElementById('bg-color');
+        const bigSection = document.querySelector('section');
+
+    btnColour.addEventListener('click', () => {
+        let strHexColour = '#';
+        const arrHexValues = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+        for (let i = 0; i < 6; i++) {
+            strHexColour += arrHexValues[getRandomNumber(arrHexValues.length)];
+        }
+        boxDisplay.innerText = strHexColour;
+        bigSection.style.backgroundColor = strHexColour;
+    });
+
+    function getRandomNumber(max) {
+        return Math.floor(Math.random() * max);
+    }
+    </script>
 </body>
 </html>
